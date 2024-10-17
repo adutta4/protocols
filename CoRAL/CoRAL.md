@@ -57,7 +57,7 @@ hg38=/mnt/beegfs/shares/chavez_lab/expanse/anno/hg38/hg38.fa
 $dorado basecaller --recursive --reference $hg38 "hac,5mCG_5hmCG" $pod5_dir > {Your File Name}.bam
 ```
 
-To run this script, copy it into the directory you wish to run it in. You will need to change the directory where your pod5 files are stored (`$pod5_dir`) and the file name, as shown above.Submit the job with slurm using `sbatch run_dorado.sbatch`. Once this has run, you should obtain a BAM file for your sample. 
+To run this script, copy it into the directory you wish to run it in. You will need to change the directory where your pod5 files are stored (`$pod5_dir`) and the file name, as shown above. Submit the job with slurm using `sbatch run_dorado.sbatch`. Once this has run, you should obtain a BAM file for your sample. 
 
 ## Step 2: Run Samtools sort and index
 The BAM file you obtained above has to be sorted and  indexed before cnvkit can run. The script to do this is located at the same directory as above, called `samtools.sbatch`. You will need to change the `source` to your own conda.sh file (this is likely similar to `/home/{your username}/miniconda3/etc/profile.d/conda.sh`). In addition, the file names can be changed accordingly. 
@@ -68,8 +68,6 @@ From the sorted BAM file obtained in step 2, you will now need copy number calls
 
 ## Step 4: Run CoRAL seed and reconstruct 
 
-Finally, you should have all the files required to run CoRAL. An example script is located at `/shares/chavez_lab/expanse/projects/nanopore/coral/case68/coral.sbatch` (note: this will also be moved to scripts). This runs the two main steps of CoRAL, seed and reconstruct. To run this script, copy it into your directory again, and change the source. To submit the script, use the format:
+Finally, you should have all the files required to run CoRAL. An example script is located at `/shares/chavez_lab/expanse/projects/nanopore/coral/case68/coral.sbatch` (note: this will also be moved to scripts). This runs the two main steps of CoRAL, seed and reconstruct. In addition, within the file you should change `case68` to your own file's basename. To run this script, copy it into your directory again, and change the source. To submit the script, use the format:
 
 `sbatch coral.sbatch {[input].cns} {sorted.bam}`
-
-In addition, within the file you should change `case68` to your own file's basename.  
