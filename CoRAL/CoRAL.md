@@ -71,3 +71,9 @@ From the sorted BAM file obtained in step 2, you will now need copy number calls
 Finally, you should have all the files required to run CoRAL. An example script is located at `/shares/chavez_lab/expanse/projects/nanopore/coral/case68/coral.sbatch` (note: this will also be moved to scripts). This runs the two main steps of CoRAL, seed and reconstruct. In addition, within the file you should change `case68` to your own file's basename. To run this script, copy it into your directory again, and change the source. To submit the script, use the format:
 
 `sbatch coral.sbatch {[input].cns} {sorted.bam}`
+
+## Step 5: Run CoRAL plot
+
+Once you have the graph and cycle reconstructions from the previous step, CoRAL also provides functionality to create a plot from the output files in order to improve data visualization. This produces output similar to the plots that AmpliconArchitect provides. An example script is provided at `/shares/chavez_lab/expanse/projects/nanopore/coral/case65_3a/coral_plot.sbatch`. as before, this file can be copied into your directory, and run with the filenames edited to reflect your input file prefixes. The AA-formatted `_graph.txt` file and `_cycles.txt` from step 4 will be the required input for this step.
+
+Along with the in-built `plot` functionality in CoRAL, the graph and cycle files are formatted such that they can be input into other AmpliconArchitect-adjacent tools, such as [AmpliconClassifier](https://github.com/AmpliconSuite/AmpliconClassifier) and [CycleViz](https://github.com/AmpliconSuite/CycleViz) as well, if desired. 
