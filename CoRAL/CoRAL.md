@@ -16,7 +16,7 @@ There are a few steps to complete in order to get set up to run CoRAL.
     conda activate coral
     ```
 
-    On pines, CoRAL is downloaded at `/shares/chavez_lab/expanse/bin/CoRAL`. The packages needed for CoRAL are listed at `/shares/chavez_lab/bin/CoRAL/conda_requirements.txt`. I would recommend installing each of the lines below individually, as I ran into some unknown problems with package versions when trying to installing them together:
+    On pines, CoRAL is downloaded at `/shares/chavez_lab/expanse/bin/CoRAL`. The packages needed for CoRAL are listed at `/shares/chavez_lab/expanse/bin/CoRAL/conda_requirements.txt`. I would recommend installing each of the lines below individually, as I ran into some unknown problems with package versions when trying to installing them together:
 
     ```
     conda config --add channels https://conda.anaconda.org/gurobi
@@ -30,7 +30,7 @@ There are a few steps to complete in order to get set up to run CoRAL.
     conda install bioconda::pysam
     conda install bioconda::bioconductor-dnacopy
     ```
-Everything is now installed and set up to start running with the analysis pipeline. 
+Everything is now installed and set up to start running the analysis pipeline. 
 
  ## Analysis Pipeline
  There are several steps to get from the initial pod5 nanopore files to CoRAL output. A general overview of these steps are: 
@@ -75,5 +75,7 @@ Finally, you should have all the files required to run CoRAL. An example script 
 ## Step 5: Run CoRAL plot
 
 Once you have the graph and cycle reconstructions from the previous step, CoRAL also provides functionality to create a plot from the output files in order to improve data visualization. This produces output similar to the plots that AmpliconArchitect provides. An example script is provided at `/shares/chavez_lab/expanse/projects/nanopore/coral/case65_3a/coral_plot.sbatch`. as before, this file can be copied into your directory, and run with the filenames edited to reflect your input file prefixes. The AA-formatted `_graph.txt` file and `_cycles.txt` from step 4 will be the required input for this step.
+
+Once the file paths in the scripts are modified, you can simply run the script with `sbatch coral_plot.sbatch`.
 
 Along with the in-built `plot` functionality in CoRAL, the graph and cycle files are formatted such that they can be input into other AmpliconArchitect-adjacent tools, such as [AmpliconClassifier](https://github.com/AmpliconSuite/AmpliconClassifier) and [CycleViz](https://github.com/AmpliconSuite/CycleViz) as well, if desired. 
