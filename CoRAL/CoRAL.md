@@ -74,8 +74,8 @@ Finally, you should have all the files required to run CoRAL. An example script 
 
 ## Step 5: Run CoRAL plot
 
-Once you have the graph and cycle reconstructions from the previous step, CoRAL also provides functionality to create a plot from the output files in order to improve data visualization. This produces output similar to the plots that AmpliconArchitect provides. An example script is provided at `/shares/chavez_lab/expanse/projects/nanopore/coral/case65_3a/coral_plot.sbatch`. as before, this file can be copied into your directory, and run with the filenames edited to reflect your input file prefixes. The AA-formatted `_graph.txt` file and `_cycles.txt` from step 4 will be the required input for this step.
+Once you have the graph and cycle reconstructions from the previous step, CoRAL also provides functionality to create a plot from the output files in order to improve data visualization. This produces output similar to the plots that AmpliconArchitect provides. An example script is provided at `/shares/chavez_lab/expanse/projects/nanopore/coral/case68/coral_plot.sbatch`. as before, this file can be copied into your directory. The AA-formatted `_graph.txt` file and `_cycles.txt` from step 4 will be the required input for this step, along with your bam file and the output prefix you are using.
 
-Once the file paths in the scripts are modified, you can simply run the script with `sbatch coral_plot.sbatch`.
+Once the file paths in the scripts are modified, you can simply run the script with `sbatch coral_plot.sbatch $GRAPH $CYCLES $BAM $OUTPUT_PREFIX`.
 
-Along with the in-built `plot` functionality in CoRAL, the graph and cycle files are formatted such that they can be input into other AmpliconArchitect-adjacent tools, such as [AmpliconClassifier](https://github.com/AmpliconSuite/AmpliconClassifier) and [CycleViz](https://github.com/AmpliconSuite/CycleViz) as well, if desired. 
+Along with the in-built `plot` functionality in CoRAL, the graph and cycle files are formatted such that they can be input into other AmpliconArchitect-adjacent tools, such as [AmpliconClassifier](https://github.com/AmpliconSuite/AmpliconClassifier) and [CycleViz](https://github.com/AmpliconSuite/CycleViz) as well, if desired.
