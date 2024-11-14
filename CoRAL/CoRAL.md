@@ -90,3 +90,7 @@ conda install intervaltree 'matplotlib-base>=2.0.0' numpy pyyaml
 ```
 
 Next, you can copy the script `run_cycleviz.sbatch` from the case68 folder into your directory. Run this with the command `sbatch run_cycleviz.sbatch $GRAPH $CYCLES`, where `$GRAPH` and `$CYCLES` are the files you generated in Step 4. 
+
+## Run AmpliconClassifier
+
+To run AmpliconClassifier, there is currently a script in the coral folder called `aa-classifier.sbatch`. To run, simply change the name of the directory with your CoRAL output and run. 
