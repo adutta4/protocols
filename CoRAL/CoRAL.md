@@ -79,3 +79,14 @@ Once you have the graph and cycle reconstructions from the previous step, CoRAL 
 Once the file paths in the scripts are modified, you can simply run the script with `sbatch coral_plot.sbatch $GRAPH $CYCLES $BAM $OUTPUT_PREFIX`.
 
 Along with the in-built `plot` functionality in CoRAL, the graph and cycle files are formatted such that they can be input into other AmpliconArchitect-adjacent tools, such as [AmpliconClassifier](https://github.com/AmpliconSuite/AmpliconClassifier) and [CycleViz](https://github.com/AmpliconSuite/CycleViz) as well, if desired.
+
+## Run CycleViz
+
+To run CycleViz, you will need to make a new conda environment for CycleViz. You can do this with the following commands: 
+
+``` 
+conda create -n cycle_viz
+conda install intervaltree 'matplotlib-base>=2.0.0' numpy pyyaml
+```
+
+Next, you can copy the script `run_cycleviz.sbatch` from the case68 folder into your directory. Run this with the command `sbatch run_cycleviz.sbatch $GRAPH $CYCLES`, where `$GRAPH` and `$CYCLES` are the files you generated in Step 4. 
